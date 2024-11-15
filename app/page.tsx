@@ -1,10 +1,11 @@
-import Image from "next/image";
+import Form from "@/components/form";
 
 export default function Home() {
   return (
-   <div>
-    Hi there
-    
-   </div>
+    <section className='py-24'>
+      <div className='container'>
+        <Form />
+      </div>
+    </section>
   );
 }
