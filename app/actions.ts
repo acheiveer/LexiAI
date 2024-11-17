@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase"
 import { decode } from 'base64-arraybuffer'
 import { redirect } from 'next/navigation'
 import dotenv from "dotenv";
+import { revalidatePath } from "next/cache"
 dotenv.config();
 
 
@@ -85,6 +86,6 @@ const { data: blog, error: blogError } = await supabase
 
 
   const blogId = blog?.[0]?.id
-
+  revalidatePath("/");
   redirect(`/blog/${blogId}`)
 }
