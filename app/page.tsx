@@ -9,18 +9,18 @@ export default async function Home() {
   const blogs = await getAllBlogs()
   return (
     <section className='py-24'>
-      <div className='container'>
+      <div className='container '>
         <Form />
 
-        <div className='mt-44'>
+        <div className='mt-44 mx-44'>
           <h2 className='text-xl font-semibold leading-none tracking-tight'>
             Recent blogs
           </h2>
         </div>
-        <div className='mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2'>
+        <div className='mt-6 mx-44 grid grid-cols-1 gap-4 sm:grid-cols-2'>
           {blogs?.map(blog => (
-            <Card key={blog.id} className='overflow-hidden'>
-              <CardContent className='p-0'>
+            <Card key={blog.id} className='overflow-hidden border-slate-300'>
+              <CardContent className='p-0 mx-4 '>
                 <Link href={`/blog/${blog.id}`} key={blog.id}>
                   <Image
                     alt=''

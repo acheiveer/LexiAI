@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { createCompletion } from '@/app/actions'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import {SignInButton, SignedIn, SignedOut} from '@clerk/nextjs'
 
 import {
   Card,
@@ -54,6 +55,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
   return (
     <>
+      <SignedIn>
       <Button
         size='sm'
         type='submit'
@@ -61,6 +63,20 @@ function SubmitButton() {
       >
         {pending ? 'Working on it...' : 'Submit'}
       </Button>
+      </SignedIn>
+
+      <SignedOut>
+        <SignInButton mode='modal'>
+          <Button
+          size='sm'
+          type='button'
+          variant='secondary'
+          className='mt-3 w-full rounded-lg'
+          >
+             Sign in to start
+          </Button>
+        </SignInButton>
+      </SignedOut>
     </>
   )
 }
